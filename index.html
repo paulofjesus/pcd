@@ -489,7 +489,27 @@
 <body>
 
   <script type="text/javascript">
-    setTimeout(() => { document.getElementById("cta1").classList.remove("d-none") }, 0); // 1637000); // temporização da Call to Action (em milissegundos)
+    setTimeout(() => { document.getElementById("cta1").classList.remove("d-none") }, 376800); // 1637000); // temporização da Call to Action (em milissegundos)
+
+    document.addEventListener('contextmenu', (e) => { e.preventDefault(); }
+        );
+        document.onkeydown = function (e) {
+            if (event.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            } 
+        }
   </script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
