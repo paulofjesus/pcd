@@ -542,8 +542,33 @@
 
 <body>
 
+  <center id="people" , style="visibility: hidden;">
+    Você e <span id="number"></span>
+    pessoas de <span id="address"></span>,
+    foram selecionadas para essa
+    OPORTUNIDADE 👍 </center>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    function randomNumber() {
+      return Math.floor(Math.random() * (130 - 120 + 1) + 120);
+    }
+
+    function setElements() {
+      document.getElementById("people").style.visibility = "visible";
+      document.getElementById("number").innerHTML = randomNumber();
+    }
+
+    $.get("https://ipinfo.io/json", function (response) {
+      $("#ip").html("IP: " + response.ip);
+      $("#address").html(response.city + ", em " + response.region);
+      setElements();
+    }, "jsonp");
+  </script>
+
   <script type="text/javascript">
-    setTimeout(() => { document.getElementById("cta1").classList.remove("d-none") }, 376800); // 1637000); // temporização da Call to Action (em milissegundos)
+    // setTimeout(() => { document.getElementById("cta1").classList.remove("d-none") }, 376800); // 1637000); // temporização da Call to Action (em milissegundos)
 
     document.addEventListener('contextmenu', (e) => { e.preventDefault(); }
     );
